@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="layouts/defaultTemplate">
+
+<head>
+	<meta charset="UTF-8">
+	<title>CST-339 Milestone 3.0 application</title>
+</head>
+
+<body>
+	<div layout:fragment="content">
+		<table style="width:50%">
+			<thead>
+				<!-- tag is used to group the header content in an HTML table. Use with the tbody and tfoot tags. -->
+				<tr>
+					<th style="text-align:center" >Jpg Image</th>
+					<th style="text-align:center" >Tape Measure Length</th>
+					<th style="text-align:center" >Tape Measure Measurement Unit</th>
+					<th style="text-align:center" >Tape Measure Weight</th>
+					<th style="text-align:center" >Tape Measure Description</th>
+				</tr>
+				<tr>
+					<th style="text-align:center" >-</th>
+					<th style="text-align:center" >-</th>
+					<th style="text-align:center" >-</th>
+					<th style="text-align:center" >-</th>
+					<th style="text-align:center" >-</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:if="${productService.getProducts.isEmpty()}">
+					<td style="text-align:center" colspan="5"> No Products Available </td>
+				</tr>
+				</tr>
+				<tr th:each="product : ${productService.getProducts()}">
+					<th style="text-align:center" th:text="*{product.jpgImage}" >Jpg Image</th>
+					<th style="text-align:center" th:text="*{product.tapeMeasureLength}" >Tape Measure Length</th>
+					<th style="text-align:center" th:text="*{product.tMMU}" >Tape Measure Measurement Unit</th>
+					<th style="text-align:center" th:text="*{product.tapeWeight}" >Tape Measure Weight</th>
+					<th style="text-align:center" th:text="*{product.tapeDescription}" >Tape Measure Description</th>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</body>
+
+</html>
